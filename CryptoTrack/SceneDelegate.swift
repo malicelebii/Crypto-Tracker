@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  CryptoTrack
-//
-//  Created by Mehmet Ali ÇELEBİ on 14.03.2024.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
