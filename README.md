@@ -12,8 +12,10 @@
   </ul> 
 </div>
 <h1>Technologies</h1>
-Project uses Swift/UIKit framework and coded all programmatically
-
+<ul>
+   <li> Swift/UIKit framework and coded all programmatically</li>
+  <li> MVVM Design Pattern</li>
+  </ul>
 <div align="center"> 
 <h2>Looking of the project</h2>
 
