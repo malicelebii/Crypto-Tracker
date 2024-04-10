@@ -19,5 +19,6 @@
 <div align="center"> 
 <h2>Looking of the project</h2>
 
-  <img src="https://github.com/malicelebii/dede/assets/44670988/479715c2-0681-47bb-a07d-6dd0cf74b57c" width="300"/>
+
+  <img src="https://github.com/malicelebii/Crypto-Tracker/assets/44670988/93a0b5c5-3786-4218-b90b-66f944c6661e" width="300"/>
 </div>
