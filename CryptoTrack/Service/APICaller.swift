@@ -1,16 +1,21 @@
 import Foundation
 
-final class APICaller {
+struct APIConstants {
+    static var apiKey: String = ""
+    static let Endpoint = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
+}
+
+protocol APICallerProtocol {
+    func getAllCryptoData(completion: @escaping (Result<[Crypto],Error>) -> ())
+}
+
+final class APICaller: APICallerProtocol {
     static let shared = APICaller()
-    struct Constants {
-        static var apiKey: String = ""
-        static let Endpoint = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
-    }
     
     func getAllCryptoData(completion: @escaping (Result<[Crypto],Error>) -> ()) {
-        guard let url = URL(string: Constants.Endpoint) else { return }
+        guard let url = URL(string: APIConstants.Endpoint) else { return }
         var request = URLRequest(url: url)
-        request.setValue(Constants.apiKey, forHTTPHeaderField: "X-CMC_PRO_API_KEY")
+        request.setValue(APIConstants.apiKey, forHTTPHeaderField: "X-CMC_PRO_API_KEY")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
