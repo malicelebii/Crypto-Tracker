@@ -4,7 +4,7 @@ protocol CryptoViewCellViewModelDelegate {
     func didFetchCryptoData(viewModels: [CryptoTableViewCellViewModel])
 }
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController {
     
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -17,22 +17,42 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Crypto Tracker"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        mainViewModel.delegate = self
-        mainViewModel.getAllCryptos()
+        setupUI()
+        setupTableView()
+        setupViewModel()
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    
+    func setupNavigationBar() {
+        title = "Crypto Tracker"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupUI() {
+        setupNavigationBar()
+        view.addSubview(tableView)
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func setupViewModel() {
+        mainViewModel.delegate = self
+    }
+    
+    func fetchData() {
+        mainViewModel.getAllCryptos()
+    }
 }
 
-extension MainViewController {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellViewModels.count
     }

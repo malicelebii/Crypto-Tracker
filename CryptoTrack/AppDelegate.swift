@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let data = try Data(contentsOf: url)
             let plist = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as? [String: String]
-            APICaller.Constants.apiKey = plist!["apiKey"]!
+            APIConstants.apiKey = plist!["apiKey"]!
         } catch  {
             
         }

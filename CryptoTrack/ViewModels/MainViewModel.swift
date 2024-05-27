@@ -1,6 +1,10 @@
 import Foundation
 
-class MainViewModel {
+protocol MainViewModelProtocol {
+    func getAllCryptos()
+}
+
+class MainViewModel: MainViewModelProtocol {
     var delegate: CryptoViewCellViewModelDelegate?
     
     func getAllCryptos() {
