@@ -6,26 +6,29 @@ struct APIConstants {
 }
 
 protocol APICallerProtocol {
-    func getAllCryptoData(completion: @escaping (Result<[Crypto],Error>) -> ())
+    func getAllCryptoData(completion: @escaping (Result<[Crypto],NetworkErrorEnum>) -> ())
 }
 
 final class APICaller: APICallerProtocol {
     static let shared = APICaller()
     
-    func getAllCryptoData(completion: @escaping (Result<[Crypto],Error>) -> ()) {
+    func getAllCryptoData(completion: @escaping (Result<[Crypto],NetworkErrorEnum>) -> ()) {
         guard let url = URL(string: APIConstants.Endpoint) else { return }
         var request = URLRequest(url: url)
         request.setValue(APIConstants.apiKey, forHTTPHeaderField: "X-CMC_PRO_API_KEY")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else { return }
+            if error != nil {
+                completion(.failure(.networkError))
+                return
+            }
+            guard let data = data else { completion(.failure(.noData)); return }
             do {
                 guard let cryptoList = try JSONDecoder().decode(CryptoListResponse.self, from: data).data else { return }
                 completion(.success(cryptoList))
             } catch {
-                print(error)
-                completion(.failure(error))
+                completion(.failure(.decodingError))
             }
         }
         

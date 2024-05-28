@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35DA039E2C04B729008AC498 /* NetworkErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DA039D2C04B729008AC498 /* NetworkErrorEnum.swift */; };
 		35DC74AB2BA2C7BD00E644DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC74AA2BA2C7BD00E644DF /* AppDelegate.swift */; };
 		35DC74AD2BA2C7BD00E644DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC74AC2BA2C7BD00E644DF /* SceneDelegate.swift */; };
 		35DC74AF2BA2C7BD00E644DF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC74AE2BA2C7BD00E644DF /* MainViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35DA039D2C04B729008AC498 /* NetworkErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorEnum.swift; sourceTree = "<group>"; };
 		35DC74A72BA2C7BD00E644DF /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35DC74AA2BA2C7BD00E644DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35DC74AC2BA2C7BD00E644DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35DA039C2C04B71D008AC498 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				35DA039D2C04B729008AC498 /* NetworkErrorEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		35DC749E2BA2C7BD00E644DF = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		35DC74A92BA2C7BD00E644DF /* CryptoTrack */ = {
 			isa = PBXGroup;
 			children = (
+				35DA039C2C04B71D008AC498 /* Enums */,
 				35DC74CF2BA31E8E00E644DF /* Service */,
 				35DC74CE2BA31E8100E644DF /* Views */,
 				35DC74C92BA2ECEB00E644DF /* ViewModels */,
@@ -202,6 +213,7 @@
 				35DC74C12BA2C8D500E644DF /* CryptoTableViewCell.swift in Sources */,
 				35DC74CD2BA31B6000E644DF /* MainViewModel.swift in Sources */,
 				35DC74C82BA2E34100E644DF /* Quote.swift in Sources */,
+				35DA039E2C04B729008AC498 /* NetworkErrorEnum.swift in Sources */,
 				35DC74BF2BA2C7F100E644DF /* APICaller.swift in Sources */,
 				35DC74C62BA2D5C000E644DF /* Crypto.swift in Sources */,
 				35DC74C32BA2D59400E644DF /* CryptoListResponse.swift in Sources */,
